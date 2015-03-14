@@ -1,7 +1,5 @@
-<html>
-    <head>
-        <title>Estupefaktum</title>
-    </head>
-    <body>
-        <h2>Today's word</h2>
-        <p>{{ word }}</p>
+{% extends 'layout.html' %}
+{% block main %}
+<h2>Today's word</h2>
+    <p>{{ word }}</p>
+{% endblock %}
