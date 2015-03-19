@@ -1,5 +1,7 @@
 {% extends 'layout.html' %}
 {% block main %}
 <h2>Today's word</h2>
-    <p>{{ word }}</p>
+{% if not work_day %}{{ date_type }}<p>Today is not marked as a normal work day. This word is from {{ date }}.</p>{% endif %}
+    <p>{% if word %}{{ word }}{% else %}No words left! {{ word }} Please submit new ones.{% endif %}</p>
+<a href="{% url 'recent' %}">Show history</a>
 {% endblock %}
