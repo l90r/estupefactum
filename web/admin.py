@@ -1,3 +1,5 @@
 from django.contrib import admin
+from web.models import Word, Date
 
-# Register your models here.
+admin.site.register(Word)
+admin.site.register(Date)
