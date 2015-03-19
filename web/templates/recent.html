@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% block main %}
+<h2>Recent words</h2>
+<table>
+    {% for word in words %}
+    <tr>
+        <td>{{ word.its_date }}</td>
+        <td>{{ word.content }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
