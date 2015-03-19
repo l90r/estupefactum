@@ -17,7 +17,7 @@ def todays_word():
     today = timezone.now().date()
 #    import pdb; pdb.set_trace()
     try:
-        word = Word.objects.get(its_date=today)
+        word = Word.objects.get(selected=True, its_date=today)
     except Word.DoesNotExist:
         if check_date() == Date.WORK_DAY:
             word = Word.objects.filter(selected=False).order_by('?')[0]
