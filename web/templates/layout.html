@@ -6,6 +6,6 @@
     {% if user.is_authenticated %}
         Logged in as {{ user.username }}. <a href="{% url 'logout' %}">Log out</a>
     {% else %}
-        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'login' %}">Log in</a> or <a href="{% url 'signup' %}">Sign up</a> (It's free!)
     {% endif %}
     {% block main %}void{% endblock %}

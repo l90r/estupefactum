@@ -2,6 +2,9 @@ from django.shortcuts import render
 from web.models import Word, Date
 from web import core
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
 
 def home(request):
     try:
@@ -21,3 +24,13 @@ def recent(request):
 def submit(request):
     return render(request, 'submit.html', {})
 
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if(form.is_valid()):
+            user = form.save()
+            return HttpResponseRedirect(reverse('home'))
+    else:
+        form = UserCreationForm()
+    return render(request, 'signup.html', {'form': form})
+    
