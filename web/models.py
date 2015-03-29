@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class Word(models.Model):
     author = models.ForeignKey(User)
     content = models.CharField(max_length=512)
-    created = models.DateTimeField()
+    created = models.DateTimeField(auto_now_add=True)
     selected = models.BooleanField(default=False)
     its_date = models.DateField(null=True)
     def __str__(self):

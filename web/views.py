@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
+from web.forms import WordSubmissionForm
 
 def home(request):
     try:
@@ -22,7 +23,15 @@ def recent(request):
     
 @login_required
 def submit(request):
-    return render(request, 'submit.html', {})
+    if request.method == 'POST':
+        form = WordSubmissionForm(request.POST)
+        if(form.is_valid()):
+            word = form.save(commit=False)
+            word.author = request.user
+            word.save()
+    else:
+        form = WordSubmissionForm()
+    return render(request, 'submit.html', {'form': form})
 
 def signup(request):
     if request.method == 'POST':
