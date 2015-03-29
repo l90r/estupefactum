@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 class Word(models.Model):
-    author = models.ForeignKey(User)
+    author = models.ForeignKey(User, related_name='words')
     content = models.CharField(max_length=512)
     created = models.DateTimeField(auto_now_add=True)
     selected = models.BooleanField(default=False)

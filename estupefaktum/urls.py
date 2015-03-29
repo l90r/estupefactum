@@ -6,7 +6,7 @@ urlpatterns = patterns('',
 
     url(r'^$', 'web.views.home', name='home'),
     url(r'^recent$', 'web.views.recent', name='recent'),
-#    url(r'^contributors$', 'web.views.contributors', name='contributors'),
+    url(r'^contributors$', 'web.views.contributors', name='contributors'),
     url(r'^submit$', 'web.views.submit', name='submit'),
     url(r'^login$', 'django.contrib.auth.views.login', {'template_name': 'login.html'}, name='login'),
     url(r'^signup$', 'web.views.signup', name='signup'),

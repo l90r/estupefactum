@@ -5,6 +5,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
+from django.db import models
+from django.contrib.auth.models import User
 from web.forms import WordSubmissionForm
 
 def home(request):
@@ -20,6 +22,11 @@ def home(request):
 def recent(request):
     words = Word.objects.filter(selected=True).order_by('-its_date').all()
     return render(request, 'recent.html', {'words': words})
+    
+def contributors(request):
+    contributors = User.objects.annotate(word_count = models.Count('words')). \
+                    order_by('-word_count')
+    return render(request, 'contributors.html', {'contributors': contributors})
     
 @login_required
 def submit(request):
