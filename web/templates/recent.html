@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 {% block main %}
 <h2>Recent words</h2>
-<table>
+<table class="table">
     {% for word in words %}
     <tr>
         <td>{{ word.its_date }}</td>

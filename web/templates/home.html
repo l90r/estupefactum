@@ -1,7 +1,9 @@
 {% extends 'layout.html' %}
 {% block main %}
 <h2>Today's word</h2>
-{% if not work_day %}{{ date_type }}<p>Today is not marked as a normal work day. This word is from {{ date }}.</p>{% endif %}
-    <p>{% if word %}{{ word }}{% else %}No words left! {{ word }} Please submit new ones.{% endif %}</p>
+{% if not work_day %}
+<div class="alert alert-warning" role="alert">{{ date_type }}Today is not marked as a normal work day. This word is from {{ date }}.</div>
+{% endif %}
+{% if word %}<div class="jumbotron"><h1>{{ word }}</h1></div>{% else %}<p>No words left! {{ word }} Please submit new ones.</p>{% endif %}
 <a href="{% url 'recent' %}">Show history</a>
 {% endblock %}

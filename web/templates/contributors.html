@@ -1,12 +1,12 @@
 {% extends 'layout.html' %}
 {% block main %}
 <h2>Top Contributors</h2>
-<table>
+<ul class="list-group">
     {% for contributor in contributors %}
-    <tr>
-        <td>{{ contributor.username }}</td>
-        <td>{{ contributor.word_count }}</td>
-    </tr>
+    <li class="list-group-item">
+    	{{ contributor.username }}
+        <span class="badge">{{ contributor.word_count }}</span>
+    </li>
     {% endfor %}
-</table>
+</ul>
 {% endblock %}
