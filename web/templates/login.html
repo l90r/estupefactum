@@ -1,15 +1,18 @@
 {% extends 'layout.html' %}
+{% load bootstrap_form %}
 
 {% block main %}
-<h2>Log in</h2>
-<form method=post>{% csrf_token %}
-{% for field in form %}
-    <div class="form-group">
-        {{ field.errors }}
-        <label class="your-class" for="{{ field.auto_id }}">{{ field.label }}</label> {{ field }}
-    </div>
-{% endfor %}
-<input type="submit" value="Log in">
-</form>
-<p>Don't have an account yet? <a href="{% url 'signup' %}">Sign up</a>, it's free.</p>
+<div class="col-md-6">
+	<h2>Log in</h2>
+	<form method=post>{% csrf_token %}
+	{% for field in form %}
+	    <div class="form-group">
+	        {{ field.errors }}
+	        <label class="your-class" for="{{ field.auto_id }}">{{ field.label }}</label> {{ field | form_control}}
+	    </div>
+	{% endfor %}
+	<input type="submit" class="btn btn-primary" value="Log in">
+	</form>
+	<p>Don't have an account yet? <a href="{% url 'signup' %}">Sign up</a>, it's free.</p>
+</div>
 {% endblock %}
