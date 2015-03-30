@@ -1,8 +1,15 @@
 {% extends 'layout.html' %}
 
 {% block main %}
+<h2>Log in</h2>
 <form method=post>{% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Log in">
+{% for field in form %}
+    <div class="form-group">
+        {{ field.errors }}
+        <label class="your-class" for="{{ field.auto_id }}">{{ field.label }}</label> {{ field }}
+    </div>
+{% endfor %}
+<input type="submit" value="Log in">
 </form>
+<p>Don't have an account yet? <a href="{% url 'signup' %}">Sign up</a>, it's free.</p>
 {% endblock %}
