@@ -3,8 +3,8 @@ from django.core.urlresolvers import reverse
 
 register = template.Library()
 
-@register.simple_tag
-def top_menu():
+@register.simple_tag(takes_context=True)
+def top_menu(context):
 	items = (
 		('home', "Today's word"),
 		('recent', 'Recent'),
@@ -12,7 +12,7 @@ def top_menu():
 		('contributors', 'Contributors'),
 	)
 	result = '<ul class="nav navbar-nav">'
-	current_name = 'home'
+	current_name = context['view_name']
 	for (name, title) in items:
 		url = reverse(name)
 		active = ' class="active"' if name == current_name else ''
