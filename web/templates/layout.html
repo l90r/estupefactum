@@ -1,3 +1,4 @@
+{% load menu %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,12 +27,7 @@
           <a class="navbar-brand" href="#">Estupefactum</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="{% url 'home' %}">Today's word</a></li>
-            <li><a href="{% url 'recent' %}">Recent</a></li>
-            <li><a href="{% url 'submit' %}">Submit</a></li>
-            <li><a href="{% url 'contributors' %}">Contributors</a></li>
-          </ul>
+          {% top_menu %}
           <p class="navbar-text navbar-right">
           {% if user.is_authenticated %}
             Logged in as {{ user.username }}. <a href="{% url 'logout' %}" class="navbar-link">Log out</a>
