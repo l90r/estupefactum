@@ -1,8 +1,10 @@
 {% extends 'layout.html' %}
+{% load bootstrap_form %}
+
 {% block main %}
 <h2>Submit a word</h2>
 <form method='post'>{% csrf_token %}
-{{ form }}
-<input type="submit" value="Submit">
+	{% form_body form %}
+<input type="submit" class="btn btn-primary" value="Submit">
 </form>
 {% endblock %}

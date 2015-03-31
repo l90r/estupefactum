@@ -1,0 +1,8 @@
+{% load bootstrap_form %}
+
+{% for field in form %}
+    <div class="form-group">
+        {{ field.errors }}
+        <label class="your-class" for="{{ field.auto_id }}">{{ field.label }}</label> {{ field | form_control}}
+    </div>
+{% endfor %}
