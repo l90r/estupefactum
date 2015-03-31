@@ -2,11 +2,12 @@
 {% load bootstrap_form %}
 
 {% block main %}
-<h2>Become a Estupefactor now! It's free.</h2>
+<h2>Join Estupefactum now! It's free.</h2>
 <div class="col-md-6">
 	<form method=post>{% csrf_token %}
 		{% form_body form %}
 	    <input type="submit" class="btn btn-primary" value="Sign up">
 	</form>
+	<p>Already signed up? <a href="{% url 'login' %}">Log in</a> instead</a></p>
 </div>
 {% endblock %}
