@@ -1,1 +1,1 @@
-web: gunicorn estupefaktum.wsgi_development --log-file -
+web: gunicorn estupefaktum.wsgi_production --log-file -
