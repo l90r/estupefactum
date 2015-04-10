@@ -1,1 +1,21 @@
-body { padding-top: 70px; }
+@font-face {
+    font-family: 'roboto_slabbold';
+    src: url('fonts/RobotoSlab-Bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+.jumbotron h1 {
+	font-family: roboto_slabbold;
+}
+
+.header h1, h2 {
+	font-size: 32pt;
+	padding-bottom: 12px;
+}
+.header {
+	color: #800;
+	background-color: #EDE5A4;
+}

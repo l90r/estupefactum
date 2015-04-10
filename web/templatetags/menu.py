@@ -6,7 +6,7 @@ register = template.Library()
 @register.simple_tag(takes_context=True)
 def top_menu(context):
 	items = (
-		('home', "Today's word"),
+		('home', "The Word of Today"),
 		('recent', 'Recent'),
 		('submit', 'Submit'),
 		('contributors', 'Contributors'),

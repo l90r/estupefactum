@@ -1,5 +1,6 @@
 {% extends 'layout.html' %}
 {% block main %}
+<div class="col-md-12">
 <h2>Recent words</h2>
 <table class="table">
     {% for word in words %}
@@ -10,3 +11,4 @@
     {% endfor %}
 </table>
 {% endblock %}
+</div>

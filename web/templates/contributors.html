@@ -1,5 +1,6 @@
 {% extends 'layout.html' %}
 {% block main %}
+<div class="col-md-6">
 <h2>Top Contributors</h2>
 <ul class="list-group">
     {% for contributor in contributors %}
@@ -10,3 +11,4 @@
     {% endfor %}
 </ul>
 {% endblock %}
+</div>
