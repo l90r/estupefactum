@@ -10,13 +10,14 @@ from django.contrib.auth.models import User
 from web.forms import WordSubmissionForm
 
 def home(request):
-    try:
-        word = core.todays_word()
-    except:
-        word = None
+    (status, word) = core.todays_word()
     context = {'word': word.content,
-               'date': word.its_date,
-               'work_day': core.check_date() == Date.WORK_DAY}
+        'date': word.its_date}
+    if status == core.WordStatus.NOT_ENOUGH_WORDS:
+        context['alert'] = 'Not enough words. Please, submit more!'
+    elif status == core.WordStatus.DAY_NOT_SCHEDULED:
+        context['alert'] = 'Today is scheduled to be skipped. ' \
+            'The most recent word is shown'
     return render(request, 'home.html', context)
 
 def recent(request):
