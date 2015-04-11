@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from web.models import Word, Date
+from django.http import Http404
+from web.models import Word, Date, Page
 from web import core
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
@@ -51,3 +52,9 @@ def signup(request):
         form = UserCreationForm()
     return render(request, 'signup.html', {'form': form})
     
+def page(request, slug):
+    try:
+        page = Page.objects.get(slug=slug)
+    except:
+        raise Http404()
+    return render(request, 'static.html', {'title': page.title, 'content': page.content})

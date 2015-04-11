@@ -11,6 +11,11 @@ class Word(models.Model):
     def __str__(self):
         return self.content
 
+class Page(models.Model):
+    slug = models.CharField(max_length=512)
+    title = models.TextField()
+    content = models.TextField()
+
 class Date(models.Model):
     WORK_DAY = 0
     WEEKEND = 1
