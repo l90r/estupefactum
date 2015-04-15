@@ -5,4 +5,6 @@ class WordSubmissionForm(forms.ModelForm):
     class Meta:
         model = Word
         fields = ['content']
-        
+        labels = {
+            'content': 'Your word',
+        }
