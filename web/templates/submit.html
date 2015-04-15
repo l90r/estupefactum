@@ -3,10 +3,14 @@
 
 {% block main %}
 <div class="col-md-6">
+{% if alert %}
+<div class="alert alert-warning" role="alert">{{ alert }}.</div>
+{% endif %}
 <h2>Submit a word</h2>
 <form method='post'>{% csrf_token %}
 	{% form_body form %}
-<input type="submit" class="btn btn-primary" value="Submit">
+<input type="submit" class="btn btn-primary" {% if disabled %}disabled="disabled" {% endif %}value="Submit">
 </form>
+{% if disabled %}<p>Go ahead and <a href="{% url 'submit' %}">submit another one</a>!</p>{% endif %}
 {% endblock %}
 </div>

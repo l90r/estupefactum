@@ -32,15 +32,19 @@ def contributors(request):
     
 @login_required
 def submit(request):
+    c = {}
     if request.method == 'POST':
         form = WordSubmissionForm(request.POST)
         if(form.is_valid()):
             word = form.save(commit=False)
             word.author = request.user
             word.save()
+            c['alert'] = 'Thank you! Your word has been submitted.'
+            c['disabled'] = True
     else:
         form = WordSubmissionForm()
-    return render(request, 'submit.html', {'form': form})
+    c['form'] = form
+    return render(request, 'submit.html', c)
 
 def signup(request):
     if request.method == 'POST':
