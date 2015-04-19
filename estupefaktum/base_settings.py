@@ -51,3 +51,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (global_settings.TEMPLATE_CONTEXT_PROCESSORS +
     ('web.context.view_name',))
 
 MINIMUM_NUMBER_WORDS = 10
+
+SECRET_KEY = os.environ['SECRET_KEY']
+
