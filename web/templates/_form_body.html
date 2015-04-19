@@ -1,8 +1,24 @@
 {% load bootstrap_form %}
 
+{% if form.non_field_errors %}
+<div class="alert alert-warning" role="warning">
+	{% for error in form.non_field_errors %}
+	<div>{{ error }}</div>
+	{% endfor %}
+</div>
+{% endif %}
 {% for field in form %}
-    <div class="form-group">
-        {{ field.errors }}
-        <label class="your-class" for="{{ field.auto_id }}">{{ field.label }}</label> {{ field | form_control}}
+    <div class="form-group{% if field.errors %} has-error{% endif %}">
+        <label class="control-label" for="{{ field.auto_id }}">
+        	{{ field.label }}
+        </label>
+        {{ field | form_control}}
+    	{% if field.errors %}
+    	<div class="field-error help-block">
+    		{% for error in field.errors %}
+    		<div>{{ error }}</div>
+    		{% endfor %}
+    	</div>
+        {% endif %}
     </div>
 {% endfor %}
