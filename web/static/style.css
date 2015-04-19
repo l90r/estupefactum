@@ -16,6 +16,6 @@
 	padding-bottom: 12px;
 }
 .header {
-	color: #800;
-	background-color: #EDE5A4;
+	color: #fff;
+	background: linear-gradient(to bottom, #a7cfdf 0%,#23538a 100%);
 }
