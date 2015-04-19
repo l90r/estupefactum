@@ -6,6 +6,8 @@
 <div class="alert alert-warning" role="alert">{{ alert }}.</div>
 {% endif %}
 <div class="jumbotron">{{ date }}<h1>{{ word }}</h1></div>
-<a href="{% url 'recent' %}">Show history</a>
+<div class="stats">
+Unpublished words: {{ unpublished }} (out of total {{ total }}).
+</div>
 {% endblock %}
 </div>

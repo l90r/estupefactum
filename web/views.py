@@ -19,6 +19,8 @@ def home(request):
     elif status == core.WordStatus.DAY_NOT_SCHEDULED:
         context['alert'] = 'Today is scheduled to be skipped. ' \
             'The most recent word is shown'
+    context['total'] = Word.objects.count()
+    context['unpublished'] = Word.objects.filter(selected=False).count()
     return render(request, 'home.html', context)
 
 def recent(request):
