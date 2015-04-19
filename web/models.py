@@ -4,12 +4,15 @@ from django.contrib.auth.models import User
 
 class Word(models.Model):
     author = models.ForeignKey(User, related_name='words')
-    content = models.CharField(max_length=512)
+    content = models.CharField(max_length=512, unique=True)
     created = models.DateTimeField(auto_now_add=True)
     selected = models.BooleanField(default=False)
     its_date = models.DateField(null=True)
     def __str__(self):
         return self.content
+
+    def clean(self):
+        self.content = self.content.strip()
 
 class Page(models.Model):
     slug = models.CharField(max_length=512)
