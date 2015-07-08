@@ -18,4 +18,5 @@
 .header {
 	color: #fff;
 	background: linear-gradient(to bottom, #a7cfdf 0%,#23538a 100%);
+	background: -webkit-linear-gradient(to bottom, #a7cfdf 0%,#23538a 100%);
 }
