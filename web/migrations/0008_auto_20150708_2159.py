@@ -11,8 +11,10 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AlterUniqueTogether(
-            name='word',
-            unique_together=set([('selected', 'its_date')]),
+        migrations.AlterField(
+            model_name='word',
+            name='its_date',
+            field=models.DateField(null=True, unique=True),
+            preserve_default=True,
         ),
     ]
