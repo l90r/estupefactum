@@ -14,6 +14,9 @@ class Word(models.Model):
     def clean(self):
         self.content = self.content.strip()
 
+    class Meta:
+        unique_together = ('selected', 'its_date')
+
 class Page(models.Model):
     slug = models.CharField(max_length=512)
     title = models.TextField()
