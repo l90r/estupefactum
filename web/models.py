@@ -7,15 +7,12 @@ class Word(models.Model):
     content = models.CharField(max_length=512, unique=True)
     created = models.DateTimeField(auto_now_add=True)
     selected = models.BooleanField(default=False)
-    its_date = models.DateField(null=True)
+    its_date = models.DateField(null=True, unique=True)
     def __str__(self):
         return self.content
 
     def clean(self):
         self.content = self.content.strip()
-
-    class Meta:
-        unique_together = ('selected', 'its_date')
 
 class Page(models.Model):
     slug = models.CharField(max_length=512)
